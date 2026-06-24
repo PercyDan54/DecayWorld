@@ -9,10 +9,26 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Random;
 
 public class DecayPopulator extends BlockPopulator {
+    private final int offsetX;
+    private final int offsetZ;
+
+    public DecayPopulator() {
+        this(0,0);
+    }
+
+    public DecayPopulator(int offsetX, int offsetZ) {
+        this.offsetX = offsetX;
+        this.offsetZ = offsetZ;
+    }
+
     @Override
     public void populate(@NotNull WorldInfo worldInfo, @NotNull Random random, int chunkX, int chunkZ, @NotNull LimitedRegion limitedRegion) {
         int startX = chunkX << 4;
         int startZ = chunkZ << 4;
+        int offsetX = this.offsetX * Integer.signum(chunkX);
+        int offsetZ = this.offsetZ * Integer.signum(chunkZ);
+        chunkX += offsetX;
+        chunkZ += offsetZ;
         long k = (long) chunkX * chunkX + (long) chunkZ * chunkZ;
         int l = Math.min((int)Math.floor(Math.sqrt(k) / 3.0 + 1.0), 16);
         int m = random.nextInt((int)Math.min(k / 2 + 1, 32768));

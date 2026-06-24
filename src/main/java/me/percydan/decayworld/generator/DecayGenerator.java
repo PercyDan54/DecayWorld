@@ -9,6 +9,18 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class DecayGenerator extends ChunkGenerator {
+    private final int offsetX;
+    private final int offsetZ;
+
+    public DecayGenerator() {
+        this(0,0);
+    }
+
+    public DecayGenerator(int offsetX, int offsetZ) {
+        this.offsetX = offsetX;
+        this.offsetZ = offsetZ;
+    }
+
     @Override
     public boolean shouldGenerateNoise() {
         return true;
@@ -42,6 +54,6 @@ public class DecayGenerator extends ChunkGenerator {
     @Override
     @NotNull
     public List<BlockPopulator> getDefaultPopulators(@NotNull World world) {
-        return List.of(new DecayPopulator());
+        return List.of(new DecayPopulator(offsetX, offsetZ));
     }
 }
