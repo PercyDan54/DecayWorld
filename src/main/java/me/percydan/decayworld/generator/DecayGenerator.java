@@ -41,7 +41,7 @@ public class DecayGenerator extends ChunkGenerator {
 
     @Override
     @NotNull
-    public  List<BlockPopulator> getDefaultPopulators(@NotNull World world) {
+    public List<BlockPopulator> getDefaultPopulators(@NotNull World world) {
         return List.of(new DecayPopulator());
     }
 }

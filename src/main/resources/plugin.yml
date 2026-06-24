@@ -3,3 +3,4 @@ version: '${version}'
 
 main: me.percydan.decayworld.DecayWorld
 api-version: '1.21'
+load: STARTUP
