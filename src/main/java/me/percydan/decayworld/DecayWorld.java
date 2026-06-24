@@ -13,12 +13,10 @@ public final class DecayWorld extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        LOGGER.info("Enabling " + getName());
     }
 
     @Override
     public void onDisable() {
-        LOGGER.info("Disabling " + getName());
     }
 
     @Override
